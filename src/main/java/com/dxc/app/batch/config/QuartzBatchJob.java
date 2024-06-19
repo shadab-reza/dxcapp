@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 
 public class QuartzBatchJob implements org.quartz.Job {
     private Logger logger= LoggerFactory.getLogger(QuartzBatchJob.class);
-    @Value("${file.output:src/main/resources/}")
+    @Value("${file.output}")
     private String outputPath;
 
     private final JobLauncher jobLauncher;
