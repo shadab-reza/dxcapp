@@ -39,7 +39,6 @@ public class QuartzBatchJob implements org.quartz.Job {
                         .toJobParameters());
 
             } catch (Exception e) {
-//                e.printStackTrace();
                 logger.error(e.getMessage());
             }
         }
