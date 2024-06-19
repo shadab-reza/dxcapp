@@ -26,5 +26,7 @@ public class CustomerEntity {
     private String dumy5;
     private String dumy6;
 
-    public CustomerEntity(){}
+    public CustomerEntity(){
+        super();
+    }
 }

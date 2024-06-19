@@ -12,5 +12,7 @@ public class CustomerModel {
     private String fname;
     private String lname;
     private String totalSpend;
-    public CustomerModel(){}
+    public CustomerModel(){
+        super();
+    }
 }

@@ -12,14 +12,18 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class QuartzBatchJob implements org.quartz.Job {
-    private Logger logger= LoggerFactory.getLogger(JobListener.class);
+    private Logger logger= LoggerFactory.getLogger(QuartzBatchJob.class);
     @Value("${file.output:src/main/resources/}")
     private String outputPath;
-    @Autowired
-    private JobLauncher jobLauncher;
 
-    @Autowired
-    private Job job;
+    private final JobLauncher jobLauncher;
+
+    private final Job job;
+
+    public QuartzBatchJob(JobLauncher jobLauncher, Job job) {
+        this.jobLauncher = jobLauncher;
+        this.job = job;
+    }
 
     @Override
     public void execute(org.quartz.JobExecutionContext context) {

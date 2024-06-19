@@ -33,10 +33,14 @@ import java.util.HashMap;
 @EnableBatchProcessing
 public class BatchConfig {
 
-	@Autowired
-	private CustomerRepository customerRepository;
 
-	@Bean
+	private final CustomerRepository customerRepository;
+
+    public BatchConfig(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
+    @Bean
 	public RepositoryItemReader<CustomerEntity> reader() {
 		RepositoryItemReader<CustomerEntity> reader = new RepositoryItemReader<>();
 		reader.setRepository(customerRepository);

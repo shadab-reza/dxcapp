@@ -28,7 +28,6 @@ public class CustomerItemProcessor implements ItemProcessor<CustomerEntity, Cust
 	double getDoubleValue(String doubleString){
 if(doubleString.isEmpty()||doubleString.isBlank()){
 	return 0d;
-
 }else{
 	return Double.parseDouble(doubleString);
 }

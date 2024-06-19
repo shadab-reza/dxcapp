@@ -18,7 +18,7 @@ class CustomItemWriter implements ItemWriter<CustomerModel> {
     }
 
     @BeforeStep
-    public void openWriter(StepExecution stepExecution) throws Exception {
+    public void openWriter(StepExecution stepExecution) {
         writer.open(stepExecution.getExecutionContext());
     }
 
@@ -28,7 +28,7 @@ class CustomItemWriter implements ItemWriter<CustomerModel> {
     }
 
     @BeforeStep
-    public void closeWriter(StepExecution stepExecution) throws Exception {
+    public void closeWriter(StepExecution stepExecution) {
         writer.close();
     }
 }
