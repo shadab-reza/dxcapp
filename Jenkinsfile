@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/shadab-reza/dxcapp'
+                git 'https://github.com/shadab-reza/dxcapp.git'
             }
         }
 
@@ -18,14 +18,14 @@ pipeline {
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
                 bat "mvn clean"
             }
-            }
+        }
 
          stage('Build') {
             steps {
                 bat "mvn install"
             }
 
-             post {
+            post {
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
                 success {
@@ -33,7 +33,7 @@ pipeline {
                     archiveArtifacts artifacts:'target/*.war'
                 }
             }
-            }
+         }
 
         stage('SonarQube analysis') {
             steps{
@@ -43,6 +43,7 @@ pipeline {
     // }
             }
         }
+
         stage('Deployment'){
             steps{
 
@@ -55,7 +56,5 @@ pipeline {
                     // contextPath:'dxcapp'
             }
         }
-
-
     }
 }
