@@ -53,7 +53,7 @@ pipeline {
                     tomcat9(url:'http://localhost:8080/manager/',credentialsId: 'tomcat_userid')
                     ],
                     war:'target/*.war'
-                    // contextPath:'dxcapp'
+                    contextPath:'dxcapp'
             }
         }
     }
